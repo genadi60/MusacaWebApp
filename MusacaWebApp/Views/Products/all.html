@@ -1,0 +1,39 @@
+﻿<h1 class="text-center">All Products</h1>
+<hr class="hr-2 bg-musaca">
+@if(Model.ProductViewModels.Count() > 0)
+{
+    {var number = 1;}
+    @foreach(var product in Model.ProductViewModels)
+    {
+        @if(number % 4 == 0 || number == 1)
+        {
+            <div class="product-row row d-flex justify-content-between mt-4">
+            {number = 1;}
+        }
+
+        <div class="product d-flex justify-content-between w-25">
+            <div class="image-holder w-25">
+                <img src="@product.Picture" alt="..." class="img-thumbnail" width="500" height="600">
+            </div>
+            <div class="data-holder w-75 px-3 mt-2">
+                <div class="text-holder d-flex justify-content-between">
+                    <h6>Name:</h6>
+                    <h6>@product.Name</h6>
+                </div>
+                <div class="text-holder d-flex justify-content-between">
+                    <h6>Price:</h6>
+                    <h6>$@product.Price</h6>
+                </div>
+                <div class="text-holder d-flex justify-content-between">
+                    <h6>Barcode:</h6>
+                    <h6>@product.Barcode</h6>
+                </div>
+            </div>
+        </div>
+        @if(number % 3 == 0)
+        {
+            </div>
+        }
+        {number++;}
+    }
+}
